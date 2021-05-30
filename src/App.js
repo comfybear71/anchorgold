@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from './Header';
+import Home from './Home';
+import { UserContext } from './UserContext';
+import { InfoContext } from './InfoContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h1>TESTING GITHUB PAGES WITH REACT AND GITHUB ACTIONS</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [value, setValue] = useState(null);
+    const [info, setInfo] = useState([null]);
+
+    return (
+        <Router>
+        <div className="app">
+            <UserContext.Provider value={[value, setValue]} >
+                <InfoContext.Provider value={[info, setInfo]} >
+                    <Route path="/">
+                        <Header />
+                        <Home />
+                    </Route>
+                </InfoContext.Provider >
+            </UserContext.Provider>
+        </div>
+        </Router>
+    );
 }
 
 export default App;
