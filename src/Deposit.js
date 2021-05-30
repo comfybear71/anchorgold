@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, Component} from 'react'
+import React, {useState, useContext} from 'react'
 import {AnchorEarn, CHAINS, NETWORKS, DENOMS} from '@anchor-protocol/anchor-earn';
 import { UserContext } from './UserContext'
 
@@ -6,43 +6,11 @@ import { UserContext } from './UserContext'
 const Deposit = () => {
 
     
-
     const [value] = useContext(UserContext);
     const [amount, setAmount] = useState("0.00")
     const [status, setStatus] = useState(null)
     const [txFee, setTxFee] = useState(null)
     const [wallet_address, setWallet_address] = useState(null)
-    // const [deposit, setDeposit] = useState(null)
-    // const [mnemonic_phrase, setMnemonic_phrase] = useState(null)
-
-    // useEffect(() => {
-    //     async function fetchData () {
-    //         try {
-    //             const response = await fetch('http://anchor.gold/data/db.json')
-    //             const data = await response.json()
-    //             console.log(data)
-    //         } catch (error) {
-    //             console.log("ERROR", error.message);
-    //         }
-            
-            
-    //     }
-    //     fetchData();
-    // }, [])
-
-    // useEffect(() => {
-    //     var config = {
-    //         headers: {'Access-Control-Allow-Origin': 'http://localhost:3000', 
-    //         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-    //         'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-    //     }
-        
-    //     }
-    //     axios.get('http://anchor.gold/data', config).then(res => {
-            
-    //         console.log(res.data)
-    //     })
-    // }, [])
 
     const addDeposit = () => {
 
@@ -88,7 +56,7 @@ const Deposit = () => {
 
     return (
         <div>
-           
+        
             <input 
                 value={amount} 
                 onChange={e => setAmount(e.target.value)} 
@@ -109,26 +77,3 @@ const Deposit = () => {
     )
 }
 export default Deposit;
-
-// const users = require('../data/data.json')
-
-    // if(value === users.wallet_address){
-    //     console.log("FOUND WALLET " + users.wallet_address)
-    // } else {
-    //     console.log("No Wallet")
-    // }
-    
-    // const fs = require('fs')
-    // fs.readFile('../data/data.json', 'utf8', (err, jsonString) =>{
-    //     console.log(jsonString)
-    // })
-
-    // const checkJSON = () => {
-    //     userData.map((data, key) => {
-    //         if(key === value) {
-    //             console.log(data, key)
-    //         }
-    //          console.log(key)
-    //         return data
-    //     })
-    // }
